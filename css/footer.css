@@ -1,0 +1,33 @@
+/* ==============================
+   FOOTER STYLES
+   ============================== */
+
+:root {
+  --primary-color: #002b5c;
+  --accent-color: #004aad;
+}
+
+footer {
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 0.95rem;
+}
+
+footer p {
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Optional: hover effect for footer links */
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  transition: 0.2s ease;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+}
