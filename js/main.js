@@ -1,3 +1,13 @@
+function applyFixedHeaderOffset() {
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+  const setPadding = () => {
+    document.body.style.paddingTop = header.offsetHeight + 'px';
+  };
+  setPadding();
+  window.addEventListener('resize', setPadding);
+}
+
 function initMenu() {
   const mobileMenu = document.getElementById("mobile-menu");
   const primaryNav = document.getElementById("primary-navigation");
@@ -8,6 +18,7 @@ function initMenu() {
       const isOpen = mobileMenu.getAttribute("aria-expanded") === "true";
       mobileMenu.setAttribute("aria-expanded", String(!isOpen));
       primaryNav.classList.toggle("open", !isOpen);
+      document.body.classList.toggle("no-scroll", !isOpen);
     });
 
     primaryNav.querySelectorAll("a").forEach((link) => {
@@ -15,6 +26,7 @@ function initMenu() {
         if (window.innerWidth <= 960 && primaryNav.classList.contains("open")) {
           primaryNav.classList.remove("open");
           mobileMenu.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("no-scroll");
         }
       });
     });
@@ -37,6 +49,7 @@ function initMenu() {
     if (window.innerWidth > 960 && primaryNav && mobileMenu) {
       primaryNav.classList.remove("open");
       mobileMenu.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("no-scroll");
       document.querySelectorAll(".dropdown-menu.open").forEach((menu) => {
         menu.classList.remove("open");
       });
@@ -45,4 +58,7 @@ function initMenu() {
       });
     }
   });
+
+  // Apply fixed header offset spacing
+  applyFixedHeaderOffset();
 }
