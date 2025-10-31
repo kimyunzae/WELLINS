@@ -1,15 +1,26 @@
-<header>
+<header class="site-header">
   <div class="nav-container">
-    <div class="logo">
-      <a href="/home.html">
-        <img src="/assets/logos/logo-wellins.png" alt="Wellins Logo" />
-      </a>
-    </div>
+    <a class="logo" href="/home.html">
+      <img src="/assets/logos/logo-wellins.png" alt="Wellins Logo" />
+    </a>
 
-    <nav>
+    <button class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="primary-navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span class="sr-only">Toggle navigation</span>
+    </button>
+
+    <nav id="primary-navigation" class="primary-nav" aria-label="Primary">
       <ul class="nav-links">
+
         <li class="dropdown">
-          <a href="#">Company ▾</a>
+          <div class="dropdown-label">
+            <a class="nav-link" href="/pages/Company/about.html">Company</a>
+            <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Toggle Company submenu">
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+          </div>
           <ul class="dropdown-menu">
             <li><a href="/pages/Company/about.html">About</a></li>
             <li><a href="/pages/Company/ceo.html">CEO Greeting</a></li>
@@ -20,27 +31,45 @@
         </li>
 
         <li class="dropdown">
-          <a href="#">Projects ▾</a>
+          <div class="dropdown-label">
+            <a class="nav-link" href="/pages/Projects/texas.html">Projects</a>
+            <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Toggle Projects submenu">
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+          </div>
           <ul class="dropdown-menu">
             <li><a href="/pages/Projects/alabama.html">Alabama</a></li>
             <li><a href="/pages/Projects/georgia.html">Georgia</a></li>
             <li><a href="/pages/Projects/ohio.html">Ohio</a></li>
             <li><a href="/pages/Projects/texas.html">Texas</a></li>
+            <li><a href="/pages/Projects/indiana.html">Indiana</a></li>
+            <li><a href="/pages/Projects/tennessee.html">Tennessee</a></li>
+            <li><a href="/pages/Projects/southcarolina.html">South Carolina</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#">Services ▾</a>
+          <div class="dropdown-label">
+            <a class="nav-link" href="/pages/Services/fire.html">Services</a>
+            <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Toggle Services submenu">
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+          </div>
           <ul class="dropdown-menu">
             <li><a href="/pages/Services/fire.html">Fire Protection</a></li>
-            <li><a href="/pages/Services/equipment.html">Equipment</a></li>
-            <li><a href="/pages/Services/piping.html">Piping</a></li>
-            <li><a href="/pages/Services/vessel.html">Vessels</a></li>
+            <li><a href="/pages/Services/equipment.html">Equipment Installation</a></li>
+            <li><a href="/pages/Services/piping.html">Mechanical & Industrial Piping</a></li>
+            <li><a href="/pages/Services/vessel.html">High-Pressure Vessels</a></li>
           </ul>
         </li>
 
         <li class="dropdown">
-          <a href="#">PR Center ▾</a>
+          <div class="dropdown-label">
+            <a class="nav-link" href="/pages/PR Center/news.html">PR Center</a>
+            <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Toggle PR Center submenu">
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+          </div>
           <ul class="dropdown-menu">
             <li><a href="/pages/PR Center/news.html">News</a></li>
             <li><a href="/pages/PR Center/brochure.html">Brochure</a></li>
@@ -48,7 +77,17 @@
           </ul>
         </li>
 
-        <li><a href="/pages/Contact/contact.html">Contact</a></li>
+        <li class="dropdown">
+          <div class="dropdown-label">
+            <a class="nav-link" href="/pages/Contact/contact.html">Contact</a>
+            <button class="submenu-toggle" type="button" aria-expanded="false" aria-label="Toggle Contact submenu">
+              <span class="chevron" aria-hidden="true"></span>
+            </button>
+          </div>
+          <ul class="dropdown-menu">
+            <li><a href="/pages/Contact/contact.html">Contact Us</a></li>
+          </ul>
+        </li>
       </ul>
     </nav>
   </div>
