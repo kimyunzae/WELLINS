@@ -18,7 +18,21 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then((html) => {
         const element = document.querySelector(selector);
-        if (element) element.innerHTML = html;
+        if (element) {
+          element.innerHTML = html;
+
+          // Normalize any root-relative links (src/href starting with "/") inside the included fragment
+          // so they work from nested pages too.
+          const rootFix = (attr) => {
+            element.querySelectorAll(`[${attr}^='/']`).forEach((el) => {
+              const val = el.getAttribute(attr);
+              if (!val) return;
+              el.setAttribute(attr, prefix + val.replace(/^\//, ""));
+            });
+          };
+          rootFix("src");
+          rootFix("href");
+        }
         if (typeof initMenu === "function") initMenu();
       })
       .catch((err) => console.error("Include error:", err));

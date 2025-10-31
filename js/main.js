@@ -2,7 +2,9 @@ function applyFixedHeaderOffset() {
   const header = document.querySelector('.site-header');
   if (!header) return;
   const setPadding = () => {
-    document.body.style.paddingTop = header.offsetHeight + 'px';
+    const h = header.offsetHeight;
+    document.body.style.paddingTop = h + 'px';
+    document.documentElement.style.setProperty('--header-height', h + 'px');
   };
   setPadding();
   window.addEventListener('resize', setPadding);
@@ -57,8 +59,22 @@ function initMenu() {
         toggle.setAttribute("aria-expanded", "false");
       });
     }
+    setDropdownHeight();
   });
 
   // Apply fixed header offset spacing
   applyFixedHeaderOffset();
+
+  // Measure tallest dropdown and set background height
+  function setDropdownHeight() {
+    const menus = Array.from(document.querySelectorAll('.dropdown-menu'));
+    if (!menus.length) return;
+    const max = menus.reduce((m, el) => Math.max(m, el.scrollHeight), 0);
+    const header = document.querySelector('.site-header');
+    const headerH = header ? header.offsetHeight : 72;
+    // Background height fits content, capped to viewport minus header
+    const height = Math.min(max + 100, Math.max(280, window.innerHeight - headerH - 20));
+    document.documentElement.style.setProperty('--dropdown-height', height + 'px');
+  }
+  setDropdownHeight();
 }
